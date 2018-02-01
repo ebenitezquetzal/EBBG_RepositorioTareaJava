@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Data Table Ejemplo</title>
+    </h:head>
+    <h:body>
+        <p:dataTable var="auto" value="#{dtBasicView.autos}">
+            <p:column headerText="Clave" style="align-content: center" >
+                <h:outputText value="#{auto.id}" />
+            </p:column>
+
+            <p:column headerText="Año">
+                <h:outputText value="#{auto.anio}" />
+            </p:column>
+
+            <p:column headerText="Marca">
+                <h:outputText value="#{auto.marca}" />
+            </p:column>
+
+            <p:column headerText="Color">
+                <h:outputText value="#{auto.color}" />
+            </p:column>
+            
+            <p:column headerText="Precio">
+                <h:outputText value="#{auto.precio}" />
+            </p:column>
+            
+            <p:column headerText="Vendido">
+                <h:selectBooleanCheckbox value="#{auto.aLaVenta}" />                
+            </p:column>
+        </p:dataTable>
+    </h:body>
+</html>
+

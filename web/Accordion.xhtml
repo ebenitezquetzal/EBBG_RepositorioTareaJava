@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+        <title>Ejemplo de Accordion</title>
+        <style>
+            img {
+                width: 300px;
+                height: 250px;
+            }
+            
+        </style>
+    </h:head>
+    <h:body>
+        <h:form id="form">  
+            <p:growl id="msgs" showDetail="true" />
+
+            <h3 style="margin-top:0">Basic</h3>
+            <p:accordionPanel multiple="true">
+                <p:tab title="Dragon Ball">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage  url="./Images/dragonball.jpg" />
+                        <h:outputText
+                            value="DRAGON BALL muestra las aventuras de Goku niño" />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Dragon Ball Z">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage url="./Images/dragonballz.jpg" />
+                        <h:outputText value="Batallas de los guerreros Z en contra de Freezer, Cell y Majin Buu" />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Dragon Ball GT">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage url="./Images/dragonballgt.jpg" />
+                        <h:outputText value="Búsqueda de las esferas del dragón en el universo." />
+                    </h:panelGrid>
+                </p:tab>
+                <p:tab title="Dragon Ball Super">
+                    <h:panelGrid columns="2" cellpadding="10">
+                        <p:graphicImage url="./Images/dragonballsuper.jpg" />
+                        <h:outputText value="Batallas en contra de los dioses y torneo de los universos." />
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+            
+            <h3>DataModel</h3>
+            <p:accordionPanel value="#{mbAccordion.datos}" var="dato">
+                <p:tab title="#{dato.titulo}">
+                    <h:panelGrid columns="2" cellpadding="5">
+                        <f:facet name="header">
+                            <p:graphicImage url="./Images/#{dato.nomimage}" />
+                        </f:facet>                    
+                        <h:outputText value="Descripción:" style="font-weight: bold" />
+                        <h:outputText value="#{dato.descrip}" />
+
+                        <h:outputText value="Sagas:" style="font-weight: bold" />
+                        <h:outputText value="#{dato.detdesc}" />
+
+                        <h:outputText value="Año de lanzamiento:" style="font-weight: bold" />
+                        <h:outputText value="#{dato.anio}" />
+                        
+                        <h:outputText value="En Curso:" style="font-weight: bold" />
+                        <h:selectBooleanCheckbox value="#{dato.enDesarrollo}" /> 
+                    </h:panelGrid>
+                </p:tab>
+            </p:accordionPanel>
+        </h:form>
+    </h:body>
+</html>
+

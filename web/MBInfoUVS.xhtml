@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+  <h:head>
+    <title>Conexión BD UniVerse con PrimeFaces</title>
+  </h:head>
+  <h:body>
+    <h1>Información de Tipos de Endoso</h1>
+    <br/>
+    <h:form>
+        <p:dataTable var="tipoEnd" value="#{managedBeanInfoUVS.lstTipoEndoso}">
+        <p:column headerText="ID">
+            <h:outputText value="#{tipoEnd.id}" />
+        </p:column>
+
+        <p:column headerText="Descripción">
+            <h:outputText value="#{tipoEnd.descripcion}" />
+        </p:column>
+
+        <p:column headerText="Tipo">
+            <h:outputText value="#{tipoEnd.tipo}" />
+        </p:column>
+      </p:dataTable>
+        <p:outputLabel value="#{managedBeanInfoUVS.errorEx}"/>
+      </h:form>
+  </h:body>
+</html>
